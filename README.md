@@ -6,9 +6,7 @@ In the midst of growing interest in off-policy evaluation (OPE), the research co
 ## Overview
 Towards a reliable offline evaluation, we develop a **interpretable evaluation procedure for OPE methods** that quantifies their sensitivity to hyper-parameter choices and/or evaluation policy choices. Our proposed evaluation procedure is summarized in the figure below:
 
-<p align="center">
-    <img src="images/algorithm1.png" width="450">
-</p>
+<div align="center"><img src="https://raw.githubusercontent.com/sony/pyIEOE/master/images/algorithm1.png" width="450"/></div>
 
 To evaluate the performance of a single OPE estimator, we prepare a set of candidates for hyper-parameters, evaluation policies, and random seeds, respectively. For each random seed, we (uniformly) randomly choose hyper-parameters and an evaluation policy. Furthermore, we randomly sample log data with replacement via the bootstrap method. Then, we conduct OPE using the specified OPE estimator and obtain a performance measure. We can use the aggregated performance measure to evaluate the performance of the OPE estimator. In particular, we can estimate the cumulative distribution function (CDF) of the performance measure. By repeating this process for each OPE estimator, we can evaluate and compare the performance of the OPE estimators.
 
@@ -151,9 +149,8 @@ evaluator.visualize_cdf(fig_dir="figures", fig_name="cdf.png")
 
 After calling `InterpretableOPEEvaluator().visualize_cdf()`, we can expect to obtain figures similar to the ones shown below:
 
-<p align="center">
-    <img src="images/sndr_cdf.png" alt="IPW CDF" width="350"/><img src="images/dr-os_cdf.png" alt="IPW CDF" width="350"/>
-</p>
+
+<div align="center"><img src="https://raw.githubusercontent.com/sony/pyIEOE/master/images/sndr_cdf.png" alt="IPW CDF" width="350"/><img src="https://raw.githubusercontent.com/sony/pyIEOE/master/images/dr-os_cdf.png" alt="IPW CDF" width="350"/></div>
 
 In this example, we evaluate and compare Self Normalized Doubly Robust (SNDR) and Doubly Robust with Shrinkage (DRos). Each of these figures visualizes the CDF of the squared error for an OPE estimator. The y-axis represents the cumulative probability, and the x-axis represents the squared error. For instance, if we look at the figure for SNDR, we can tell that with a probability of 80%, the squared error of the SNDR estimator is less than 0.0002. On the other hand, if we look at the figure for DRos, we can tell that with a probability of 80%, the squared error of the DRos estimator is less than 0.0003.
 
@@ -163,9 +160,9 @@ To compare the estimators, we can run the following:
 evaluator.visualize_cdf_aggregate(fig_dir="figures", fig_name="cdf.png")
 ```
 After calling `InterpretableOPEEvaluator().visualize_cdf_aggregate()`, we can expect to obtain figures similar to the one shown below:
-<p align="center">
-    <img src="images/cdf.png" alt="CDF" width="700"/>
-</p>
+
+<div align="center"><img src="https://raw.githubusercontent.com/sony/pyIEOE/master/images/cdf.png" width="350"/></div>
+
 This figure plots the CDFs of all OPE estimators. **This allows for an easy comparison between the OPE estimators. In particular, these figures suggests that the SNDR estimator outperforms the DRos estimator.**
 
 ## Citation
