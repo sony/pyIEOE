@@ -190,7 +190,7 @@ Bibtex:
 - Haruka Kiyohara (Tokyo Institute of Technology / Hanjuku-kaso Co., Ltd.)
 - Kazuki Mogi (Stanford University / Hanjuku-kaso Co., Ltd.)
 - Yusuke Narita (Hanjuku-kaso Co., Ltd. / Yale University)
-- Tateno Kei (Sony Group Corporation)
+- Kei Tateno (Sony Group Corporation)
 
 ## Contact
 For any question about the paper and package, feel free to contact: saito@hanjuku-kaso.com
