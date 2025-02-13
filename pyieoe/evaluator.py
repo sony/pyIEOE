@@ -327,7 +327,9 @@ class InterpretableOPEEvaluator(BaseOPEEvaluator):
                 self.policy_value[est][i] = policy_value_s[est]
                 self.squared_error[est][i] = squared_error_s[est]
             for j, metric in enumerate(self.reg_model_metric_names):
-                self.reg_model_metrics[metric][i] = reg_model_metrics[j].mean()
+                self.reg_model_metrics[metric][i] = np.array(
+                    [reg_model_metrics[j]]
+                ).mean()
         return self.policy_value
 
     def calculate_squared_error(self) -> dict:
@@ -841,7 +843,7 @@ class InterpretableOPEEvaluator(BaseOPEEvaluator):
             rel_mse = 1 - (mse / mse_naive)
             mae = calc_mae(r_true, r_pred)
             mae_naive = calc_mae(r_true, r_naive_pred)
-            rel_mae = 1 - (mae / mse_naive)
+            rel_mae = 1 - (mae / mae_naive)
             return rel_mse, rel_mae
 
     def load_squared_error(
